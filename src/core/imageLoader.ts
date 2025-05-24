@@ -7,7 +7,7 @@ type ImageData = {
     pixels: Uint8ClampedArray; // R, G, B, A 나열됨
 };
 
-const loadImage = async (filePath: string): Promise<ImageData> => {
+export const loadImage = async (filePath: string): Promise<ImageData> => {
     const image = sharp(filePath).greyscale();
 
     const { width, height } = await image.metadata();

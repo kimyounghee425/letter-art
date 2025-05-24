@@ -1,4 +1,18 @@
-import { render } from './dist/index.mjs';
+import { renderImageToAscii } from './dist/index.mjs';
+import fs from 'fs';
 
+const main = async () => {
+    const filePath = './image/ronaldo.png'; // 실제 이미지 경로
+    const width = 1920;
+    const preset = 'blocks'; // 'bold', 'blocks', 'light' 등 가능
 
-console.log(render('ki'));
+    try {
+        const ascii = await renderImageToAscii(filePath, width, preset);
+        fs.writeFileSync('ascii-art.txt', ascii, 'utf-8');
+        console.log(ascii);
+    } catch (err) {
+        console.error('변환 실패:', err.message);
+    }
+};
+
+main();

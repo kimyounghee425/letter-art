@@ -1,4 +1,6 @@
 // 진입점
 
-import render from './core/renderText';
-export { render };
+export { loadImage } from './core/imageLoader';
+export { rgbToGray, pixelToChar } from './core/pixelToChar';
+export { renderImageToAscii } from './core/renderText';
+export { charsetPresets } from './presets/charset';
