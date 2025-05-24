@@ -1,2 +1,4 @@
-import render from './core/render';
+// 진입점
+
+import render from './core/renderText';
 export { render };

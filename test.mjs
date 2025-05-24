@@ -1,3 +1,4 @@
 import { render } from './dist/index.mjs';
 
-console.log(render('ik'));
+
+console.log(render('ki'));

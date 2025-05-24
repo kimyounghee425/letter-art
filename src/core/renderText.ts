@@ -1,4 +1,6 @@
-import { patterns } from '../patterns';
+// 이미지 -> 아스키 문자열 출력 로직
+
+import { patterns } from '../presets/charset';
 
 const render = (text: string): string => {
     const chars = text.toLowerCase().split('');
