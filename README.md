@@ -5,7 +5,7 @@
 
 ---
 
-## 🚀 Features
+## Features
 
 - 이미지 파일을 아스키 문자열로 변환
 - 다양한 문자 프리셋 지원 (`default`, `bold`, `light`, `blocks`, `emoji` 등)
@@ -16,6 +16,6 @@
   
 ---
 
-## 📸 결과 예시
+## 결과 예시
 
 <img width="894" alt="image" src="https://github.com/user-attachments/assets/9d934f8e-94df-4b4b-ac0b-e5babf6e95f6" />
