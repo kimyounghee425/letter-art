@@ -8,7 +8,7 @@
 ## Features
 
 - 이미지 파일을 아스키 문자열로 변환
-- 다양한 문자 프리셋 지원 (`default`, `bold`, `light`, `blocks`, `emoji` 등)
+- 문자 프리셋 지원 (`default`, `bold`, `light`, `blocks`, `emoji` 등)
 - `sharp` 기반의 빠르고 안정적인 이미지 처리
 - 명암도 기반 문자 맵핑 알고리즘
 - Node.js 환경에서 바로 실행 가능
@@ -18,4 +18,5 @@
 
 ## 결과 예시
 
-<img width="894" alt="image" src="https://github.com/user-attachments/assets/9d934f8e-94df-4b4b-ac0b-e5babf6e95f6" />
+<img width="892" alt="image" src="https://github.com/user-attachments/assets/6af78ca9-63fd-42f2-ab8f-8c604bab70d9" />
+
