@@ -1,7 +1,15 @@
 {
-    "name": "make-my-name",
+    "name": "letter-art",
     "version": "1.0.0",
     "main": "index.js",
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs"
+        },
+        "./react": {
+            "import": "./dist/react/AsciiArt.mjs"
+        }
+    },
     "scripts": {
         "build": "tsup",
         "test": "echo \"Error: no test specified\" && exit 1"

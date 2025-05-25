@@ -1,9 +1,16 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from 'tsup';
 
-export default defineConfig({
-    entry: ["src/index.ts"],
-    format: ["esm", "cjs"],
-    dts: true,
-    outDir: "dist",
-    clean: true,
-});
+export default defineConfig([
+    {
+        entry: ['src/index.ts'],
+        format: ['esm'],
+        outDir: 'dist',
+        dts: true,
+    },
+    {
+        entry: ['src/react/AsciiArt.tsx'],
+        format: ['esm'],
+        outDir: 'dist/react',
+        dts: true,
+    },
+]);
