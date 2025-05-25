@@ -7,4 +7,4 @@ export { renderImageToAscii } from './core/renderText';
 export { charsetPresets } from './presets/charset';
 
 // 컴포넌트
-export { AsciiArt } from './react/AsciiArt';
+export { default as AsciiArt } from './react/AsciiArt';

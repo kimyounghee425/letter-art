@@ -9,7 +9,7 @@ interface AsciiArtProps {
     preset?: keyof typeof charsetPresets;
 }
 
-export const AsciiArt = ({ src, width = 80, preset = 'default' }: AsciiArtProps) => {
+export default function AsciiArt({ src, width = 80, preset = 'default' }: AsciiArtProps) {
     const [ascii, setAscii] = useState<string>('');
 
     useEffect(() => {
@@ -32,4 +32,4 @@ export const AsciiArt = ({ src, width = 80, preset = 'default' }: AsciiArtProps)
             {ascii}
         </pre>
     );
-};
+}
