@@ -2,18 +2,28 @@
 import { loadImage } from './imageLoader';
 import { rgbToGray, pixelToChar } from './pixelToChar';
 import { charsetPresets } from '../presets/charset';
+import sharp from 'sharp';
 
 export const renderImageToAscii = async function (
     filePath: string,
     targetWidth: number = 80,
     preset: keyof typeof charsetPresets = 'default',
 ): Promise<string> {
-    const image = await loadImage(filePath);
-    const { width, height, pixels } = image;
+    const CHAR_RATIO = 0.5;
 
-    const aspectRatio = height / width;
+    const metadata = await sharp(filePath).metadata();
+    const originalWidth = metadata.width || 1;
+    const originalHeight = metadata.height || 1;
+    const aspectRatio = originalHeight / originalWidth;
+    console.log("원래 비율", originalHeight, originalWidth)
     const newWidth = targetWidth;
-    const newHeight = Math.floor(targetWidth * aspectRatio * 0.5); // 세로 줄 조정
+    const newHeight = Math.floor(newWidth * aspectRatio * CHAR_RATIO);
+    console.log("새 비율", newHeight, newWidth)
+    const { width, height, pixels } = await loadImage(
+        filePath,
+        newWidth,
+        newHeight,
+    );
 
     const asciiLines: string[] = [];
 
@@ -22,7 +32,11 @@ export const renderImageToAscii = async function (
         for (let x = 0; x < newWidth; x++) {
             const srcX = Math.floor((x / newWidth) * width);
             const srcY = Math.floor((y / newHeight) * height);
-            const i = (srcY * width + srcX) * 4;
+            const i = (srcY * width + srcX);
+            if (i + 2 >= pixels.length) {
+                line += '?'; // 또는 ' ' 공백 문자
+                break;
+            }
 
             const r = pixels[i];
             const g = pixels[i + 1];
