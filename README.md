@@ -18,5 +18,6 @@
 
 ## 결과 예시
 
-<img width="892" alt="image" src="https://github.com/user-attachments/assets/6af78ca9-63fd-42f2-ab8f-8c604bab70d9" />
+<img width="666" alt="image" src="https://github.com/user-attachments/assets/084a2b98-02dd-4538-b1d6-2ae055f18977" />
+
 
