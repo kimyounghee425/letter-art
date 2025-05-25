@@ -2,8 +2,8 @@ import { renderImageToAscii } from './dist/index.mjs';
 import fs from 'fs';
 
 const main = async () => {
-    const filePath = './image/ronaldo.png'; // 실제 이미지 경로
-    const width = 440;
+    const filePath = './image/ljm.png'; // 실제 이미지 경로
+    const width = 2560;
     const preset = 'ascii'; // default, bold, light, blocks, emoji, ascii 가능
 
     try {
