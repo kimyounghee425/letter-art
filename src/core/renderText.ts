@@ -15,10 +15,10 @@ export const renderImageToAscii = async function (
     const originalWidth = metadata.width || 1;
     const originalHeight = metadata.height || 1;
     const aspectRatio = originalHeight / originalWidth;
-    console.log("원래 비율", originalHeight, originalWidth)
+
     const newWidth = targetWidth;
     const newHeight = Math.floor(newWidth * aspectRatio * CHAR_RATIO);
-    console.log("새 비율", newHeight, newWidth)
+
     const { width, height, pixels } = await loadImage(
         filePath,
         newWidth,
@@ -32,7 +32,7 @@ export const renderImageToAscii = async function (
         for (let x = 0; x < newWidth; x++) {
             const srcX = Math.floor((x / newWidth) * width);
             const srcY = Math.floor((y / newHeight) * height);
-            const i = (srcY * width + srcX);
+            const i = srcY * width + srcX;
             if (i + 2 >= pixels.length) {
                 line += '?'; // 또는 ' ' 공백 문자
                 break;
@@ -43,7 +43,7 @@ export const renderImageToAscii = async function (
             const b = pixels[i + 2];
 
             const gray = rgbToGray(r, g, b);
-            const char = pixelToChar(gray);
+            const char = pixelToChar(gray, preset);
             line += char;
         }
         asciiLines.push(line);
