@@ -1,5 +1,68 @@
 https://www.npmjs.com/package/letter-art
 
+A simple ASCII art rendering library that converts images into text-based representations.
+It maps pixel brightness to characters based on grayscale values and supports multiple character presets.
+
+## Usage (for Next.js)
+
+### Create /api/ascii/route.ts
+
+Add the following code:
+```
+// src/app/api/ascii/route.ts
+export { GET } from "letter-art/next-api";
+```
+This automatically sets up the /api/ascii endpoint.
+
+---
+
+### Use on the client
+
+```
+"use client";
+
+import { AsciiArt } from "letter-art/react";
+
+export default function Page() {
+  return (
+    <AsciiArt
+      src="/SeolYoon1.jpeg"   // Must be relative to the public folder
+      width={200}             // Optional: output width (default is 80)
+      preset="ascii"          // Optional: character preset (see below)
+    />
+  );
+}
+```
+
+**Preset options**
+```
+default: '@%#*+=-:. ', // Common default
+bold: '@$B%8WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,"^`\' ', // High detail
+light: ' .:-=+*#%@', // Inverted order
+blocks: '█▓▒░ ', // Unicode block style
+emoji: '🤍🩶🩶🤎🖤', // Emoji style (limited terminal support)
+ascii: '#WMBRXVYIti+=~-,. ', // Classic ASCII style
+```
+
+### Notes
+
+src must point to a file inside the public/ folder.
+Internally, the server resolves it using process.cwd().
+
+This package uses sharp, and does not run in the browser.
+
+You must run it on the Next.js server environment (e.g., via app/api/)
+
+### Output Example
+
+<img width="1032" alt="image" src="https://github.com/user-attachments/assets/9ea431ca-7970-426f-aa63-cc5e90754ff7" />
+
+<br />
+
+---
+
+<br />
+
 이미지를 텍스트 문자로 표현해주는 간단한 아스키 아트 렌더링 라이브러리입니다. 
 명암도 기반으로 픽셀을 문자로 매핑하며 몇 가지 문자 프리셋을 지원합니다.
 
@@ -49,9 +112,6 @@ src는 반드시 public/ 폴더 기준 경로여야 하며, 내부적으로 proc
 Next.js 서버에서만 사용 가능합니다.
 
 
-## 결과 예시
-
-<img width="1032" alt="image" src="https://github.com/user-attachments/assets/9ea431ca-7970-426f-aa63-cc5e90754ff7" />
 
 
 
