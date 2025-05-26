@@ -26,7 +26,7 @@ import { AsciiArt } from "letter-art/react";
 export default function Page() {
   return (
     <AsciiArt
-      src="/SeolYoon1.jpeg"   // Must be relative to the public folder
+      src="/image.jpeg"       // Must be relative to the public folder
       width={200}             // Optional: output width (default is 80)
       preset="ascii"          // Optional: character preset (see below)
     />
@@ -36,11 +36,11 @@ export default function Page() {
 
 **Preset options**
 ```
-default: '@%#*+=-:. ', // Common default
+default: '@%#*+=-:. ', // default
 bold: '@$B%8WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,"^`\' ', // High detail
 light: ' .:-=+*#%@', // Inverted order
 blocks: '█▓▒░ ', // Unicode block style
-emoji: '🤍🩶🩶🤎🖤', // Emoji style (limited terminal support)
+emoji: '🤍🩶🩶🤎🖤', // heart
 ascii: '#WMBRXVYIti+=~-,. ', // Classic ASCII style
 ```
 
@@ -86,7 +86,7 @@ import { AsciiArt } from "letter-art/react";
 export default function Page() {
   return (
     <AsciiArt
-      src="/SeolYoon1.jpeg"   // 반드시 public 폴더 기준 경로
+      src="/image.jpeg"       // 반드시 public 폴더 기준 경로
       width={200}             // 선택: 출력 너비 (기본값: 80)
       preset="ascii"          // 선택: 문자 스타일 (하단 참고)
     />
@@ -97,11 +97,11 @@ export default function Page() {
 
 **preset 종류**
 ```
-  default: '@%#*+=-:. ', // 가장 흔한 기본값
+  default: '@%#*+=-:. ', // 기본값
     bold: '@$B%8WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,"^`\' ', // 고해상도
-    light: ' .:-=+*#%@', // 반전된 순서
+    light: ' .:-=+*#%@', // 반전
     blocks: '█▓▒░ ', // 유니코드 블록 전용
-    emoji: '🤍🩶🩶🤎🖤', // 감성용 (터미널 대응 안 좋음)
+    emoji: '🤍🩶🩶🤎🖤', // 하트
     ascii: '#WMBRXVYIti+=~-,. ', // 고전 ASCII 스타일
 ```
 
