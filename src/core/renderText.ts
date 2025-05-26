@@ -1,6 +1,6 @@
 // 이미지 -> 아스키 문자열 출력 로직
 import { loadImage } from './imageLoader';
-import { rgbToGray, pixelToChar } from './pixelToChar';
+import { pixelToChar } from './pixelToChar';
 import { charsetPresets } from '../presets/charset';
 import sharp from 'sharp';
 
@@ -38,11 +38,7 @@ export const renderImageToAscii = async function (
                 break;
             }
 
-            const r = pixels[i];
-            const g = pixels[i + 1];
-            const b = pixels[i + 2];
-
-            const gray = rgbToGray(r, g, b);
+            const gray = pixels[i];
             const char = pixelToChar(gray, preset);
             line += char;
         }
