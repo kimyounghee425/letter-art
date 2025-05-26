@@ -22,4 +22,11 @@ export default defineConfig([
         dts: true,
         outExtension: () => ({ js: '.mjs' }),
     },
+    {
+        entry: ['src/api/next-api.ts'],
+        format: ['esm'],
+        outDir: 'dist/api',
+        dts: true,
+        outExtension: () => ({ js: '.mjs' }),
+    },
 ]);
