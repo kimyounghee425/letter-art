@@ -7,12 +7,19 @@ It maps pixel brightness to characters based on grayscale values and supports mu
 
 ### Create /api/ascii/route.ts
 
-Add the following code:
+Since letter-art performs image processing on the server side, you need to set up an API route using Next.js App Router.
+To set it up at the /api/ascii endpoint, create the following file:
 ```
 // src/app/api/ascii/route.ts
 export { GET } from "letter-art/next-api";
 ```
-This automatically sets up the /api/ascii endpoint.
+
+You are not required to use /api/ascii specifically.
+For example, you can configure the API route directly at /api like this:
+```
+// src/app/api/route.ts
+export { GET } from "letter-art/next-api";
+```
 
 ---
 
@@ -28,7 +35,9 @@ export default function Page() {
     <AsciiArt
       src="/image.jpeg"       // Must be relative to the public folder
       width={200}             // Optional: output width (default is 80)
-      preset="ascii"          // Optional: character preset (see below)
+      preset="ascii"          // Optional: character preset (see below
+      endpoint="/api/ascii"   // API endpoint on the server (default: /api/ascii)
+    />
     />
   );
 }
@@ -70,12 +79,20 @@ You must run it on the Next.js server environment (e.g., via app/api/)
 
 ## 사용법 (Next.js 기준)
 ### 1. /api/ascii/route.ts 생성
-아래 코드를 작성
+letter-art 는 서버에서 이미지 처리를 수행하므로, Next.js 의 App Router 기반 API 라우트를 설정해야 합니다.
+`/api/ascii` 엔드포인트로 설정하려면 다음과 같이 구성하세요.
 ```
 // src/app/api/ascii/route.ts
 export { GET } from "letter-art/next-api";
 ```
-이 경로는 자동적으로 `/api/ascii` 엔드포인트로 사용됨
+
+꼭 /api/ascii를 쓸 필요는 없습니다. 예를 들어, 다음처럼 API 라우트를 /api로 설정이 가능합니다.
+```
+// src/app/api/route.ts
+export { GET } from "letter-art/next-api";
+```
+
+
 
 ### 2. 클라이언트에서 사용
 ```
@@ -89,6 +106,7 @@ export default function Page() {
       src="/image.jpeg"       // 반드시 public 폴더 기준 경로
       width={200}             // 선택: 출력 너비 (기본값: 80)
       preset="ascii"          // 선택: 문자 스타일 (하단 참고)
+      endpoint="/api/ascii"   // 서버 API 엔드포인트 (기본값: /api/ascii)    
     />
   );
 }
