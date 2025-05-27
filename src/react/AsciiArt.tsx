@@ -1,12 +1,11 @@
 // 컴포넌트화
-import React, { useEffect, useState } from 'react';
-import { renderImageToAscii } from '../core/renderText';
+import { useEffect, useState } from 'react';
 import { charsetPresets } from '../presets/charset';
 
 interface AsciiArtProps {
     src: string;
     width?: number;
-    preset?: keyof typeof charsetPresets;
+    preset?: keyof typeof charsetPresets; // charsetPresets 의 key 값들만 추출해 union 타입으로 만든 것
     endpoint?: string;
 }
 
@@ -14,7 +13,7 @@ export default function AsciiArt({
     src,
     width = 80,
     preset = 'default',
-    endpoint = '/api/ascii',
+    endpoint = '/api/ascii', // 엔드포인트도 동적으로 받는데 일단 fix
 }: AsciiArtProps) {
     const [ascii, setAscii] = useState<string>('');
 

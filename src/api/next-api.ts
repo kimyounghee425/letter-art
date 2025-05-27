@@ -13,10 +13,11 @@ export async function GET(req: Request) {
             return new Response("Missing src", { status: 400 });
         }
 
+        // src 파일이 실제로 존재하는지 확인
         const localPath = path.join(process.cwd(), "public", decodeURIComponent(src));
-        await fs.access(localPath); // 존재 확인
+        await fs.access(localPath);
 
-        const ascii = await renderImageToAscii(localPath, width, preset as any);
+        const ascii = await renderImageToAscii(localPath, width, preset);
         return new Response(ascii, {
             headers: { "Content-Type": "text/plain" },
         });
